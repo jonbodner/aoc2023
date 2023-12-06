@@ -53,10 +53,12 @@ func calcPart1(dr io.Reader) int {
 		total := 0
 		curTime := times[i]
 		curDistance := distances[i]
-		for j := 1; j <= curTime/2; j++ {
+		for j := curTime / 2; j > 0; j-- {
 			distance := (curTime - j) * j
 			if distance > curDistance {
 				total += 2
+			} else {
+				break
 			}
 		}
 		if curTime%2 == 0 {
